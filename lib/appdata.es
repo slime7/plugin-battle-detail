@@ -89,6 +89,19 @@ class AppData {
       return
     let name = `${id}.json` + GZIP_EXT
     let data = JSON.stringify(battle)
+    // upload battle data
+    let postHeaders = new Headers();
+    postHeaders.append('Content-Type', 'application/json;charset=UTF-8');
+    // TODO: 在主界面添加设置来改变url.
+    fetch('https://example.com/abc.html',
+      {
+        method: 'POST',
+        headers: postHeaders,
+        body: data
+      })
+      .then(function (response) {
+        //pass
+      });
     await this.saveFile(name, data)
   }
 
